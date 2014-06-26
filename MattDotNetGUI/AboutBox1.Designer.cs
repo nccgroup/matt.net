@@ -1,3 +1,13 @@
+/*
+ * Released as open source by NCC Group Plc - http://www.nccgroup.com/
+ * 
+ * Developed by Matt Lewis, (matt [dot] lewis [at] nccgroup.com)
+ * 
+ * http://www.github.com/nccgroup/matt.net
+ * 
+ * Released under AGPL. See LICENSE for more information
+ */
+﻿
 ﻿namespace MattDotNetGUI
 {
     partial class AboutBox1
