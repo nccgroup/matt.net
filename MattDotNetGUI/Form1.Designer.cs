@@ -78,7 +78,7 @@ namespace MattDotNetGUI
             this.CB_CommandExecution.Location = new System.Drawing.Point(25, 48);
             this.CB_CommandExecution.Name = "CB_CommandExecution";
             this.CB_CommandExecution.Size = new System.Drawing.Size(123, 17);
-            this.CB_CommandExecution.TabIndex = 1;
+            this.CB_CommandExecution.TabIndex = 9;
             this.CB_CommandExecution.Text = "Command Execution";
             this.CB_CommandExecution.UseVisualStyleBackColor = true;
             // 
@@ -90,7 +90,7 @@ namespace MattDotNetGUI
             this.CB_FileCanonicalisation.Location = new System.Drawing.Point(25, 71);
             this.CB_FileCanonicalisation.Name = "CB_FileCanonicalisation";
             this.CB_FileCanonicalisation.Size = new System.Drawing.Size(122, 17);
-            this.CB_FileCanonicalisation.TabIndex = 2;
+            this.CB_FileCanonicalisation.TabIndex = 10;
             this.CB_FileCanonicalisation.Text = "File Canonicalisation";
             this.CB_FileCanonicalisation.UseVisualStyleBackColor = true;
             // 
@@ -102,7 +102,7 @@ namespace MattDotNetGUI
             this.CB_InformationDisclosure.Location = new System.Drawing.Point(25, 94);
             this.CB_InformationDisclosure.Name = "CB_InformationDisclosure";
             this.CB_InformationDisclosure.Size = new System.Drawing.Size(130, 17);
-            this.CB_InformationDisclosure.TabIndex = 3;
+            this.CB_InformationDisclosure.TabIndex = 11;
             this.CB_InformationDisclosure.Text = "Information Disclosure";
             this.CB_InformationDisclosure.UseVisualStyleBackColor = true;
             // 
@@ -114,7 +114,7 @@ namespace MattDotNetGUI
             this.CB_LDAPInjection.Location = new System.Drawing.Point(25, 186);
             this.CB_LDAPInjection.Name = "CB_LDAPInjection";
             this.CB_LDAPInjection.Size = new System.Drawing.Size(97, 17);
-            this.CB_LDAPInjection.TabIndex = 4;
+            this.CB_LDAPInjection.TabIndex = 15;
             this.CB_LDAPInjection.Text = "LDAP Injection";
             this.CB_LDAPInjection.UseVisualStyleBackColor = true;
             // 
@@ -126,7 +126,7 @@ namespace MattDotNetGUI
             this.CB_XPathInjection.Location = new System.Drawing.Point(25, 163);
             this.CB_XPathInjection.Name = "CB_XPathInjection";
             this.CB_XPathInjection.Size = new System.Drawing.Size(98, 17);
-            this.CB_XPathInjection.TabIndex = 5;
+            this.CB_XPathInjection.TabIndex = 14;
             this.CB_XPathInjection.Text = "XPath Injection";
             this.CB_XPathInjection.UseVisualStyleBackColor = true;
             // 
@@ -138,7 +138,7 @@ namespace MattDotNetGUI
             this.CB_SQLInjection.Location = new System.Drawing.Point(25, 25);
             this.CB_SQLInjection.Name = "CB_SQLInjection";
             this.CB_SQLInjection.Size = new System.Drawing.Size(90, 17);
-            this.CB_SQLInjection.TabIndex = 6;
+            this.CB_SQLInjection.TabIndex = 8;
             this.CB_SQLInjection.Text = "SQL Injection";
             this.CB_SQLInjection.UseVisualStyleBackColor = true;
             // 
@@ -150,7 +150,7 @@ namespace MattDotNetGUI
             this.CB_WebRedirection.Location = new System.Drawing.Point(25, 140);
             this.CB_WebRedirection.Name = "CB_WebRedirection";
             this.CB_WebRedirection.Size = new System.Drawing.Size(106, 17);
-            this.CB_WebRedirection.TabIndex = 7;
+            this.CB_WebRedirection.TabIndex = 13;
             this.CB_WebRedirection.Text = "Web Redirection";
             this.CB_WebRedirection.UseVisualStyleBackColor = true;
             // 
@@ -162,7 +162,7 @@ namespace MattDotNetGUI
             this.CB_XSS.Location = new System.Drawing.Point(25, 117);
             this.CB_XSS.Name = "CB_XSS";
             this.CB_XSS.Size = new System.Drawing.Size(147, 17);
-            this.CB_XSS.TabIndex = 8;
+            this.CB_XSS.TabIndex = 12;
             this.CB_XSS.Text = "Cross-Site Scripting (XSS)";
             this.CB_XSS.UseVisualStyleBackColor = true;
             // 
@@ -196,7 +196,7 @@ namespace MattDotNetGUI
             this.GoButton.Location = new System.Drawing.Point(28, 380);
             this.GoButton.Name = "GoButton";
             this.GoButton.Size = new System.Drawing.Size(194, 23);
-            this.GoButton.TabIndex = 11;
+            this.GoButton.TabIndex = 16;
             this.GoButton.Text = "Find Some Bugs...";
             this.GoButton.UseVisualStyleBackColor = true;
             this.GoButton.Click += new System.EventHandler(this.GoButton_Click);
@@ -218,14 +218,14 @@ namespace MattDotNetGUI
             this.SourcePath.Location = new System.Drawing.Point(25, 74);
             this.SourcePath.Name = "SourcePath";
             this.SourcePath.Size = new System.Drawing.Size(669, 20);
-            this.SourcePath.TabIndex = 13;
+            this.SourcePath.TabIndex = 2;
             // 
             // SourceButton
             // 
             this.SourceButton.Location = new System.Drawing.Point(701, 71);
             this.SourceButton.Name = "SourceButton";
             this.SourceButton.Size = new System.Drawing.Size(75, 23);
-            this.SourceButton.TabIndex = 14;
+            this.SourceButton.TabIndex = 3;
             this.SourceButton.Text = "Source Dir";
             this.SourceButton.UseVisualStyleBackColor = true;
             this.SourceButton.Click += new System.EventHandler(this.SourceButton_Click);
@@ -235,7 +235,7 @@ namespace MattDotNetGUI
             this.CatNETButton.Location = new System.Drawing.Point(701, 33);
             this.CatNETButton.Name = "CatNETButton";
             this.CatNETButton.Size = new System.Drawing.Size(75, 23);
-            this.CatNETButton.TabIndex = 16;
+            this.CatNETButton.TabIndex = 1;
             this.CatNETButton.Text = "Cat.NET";
             this.CatNETButton.UseVisualStyleBackColor = true;
             this.CatNETButton.Click += new System.EventHandler(this.CatNETButton_Click);
@@ -245,31 +245,32 @@ namespace MattDotNetGUI
             this.CatNETPath.Location = new System.Drawing.Point(25, 36);
             this.CatNETPath.Name = "CatNETPath";
             this.CatNETPath.Size = new System.Drawing.Size(669, 20);
-            this.CatNETPath.TabIndex = 15;
+            this.CatNETPath.TabIndex = 0;
             // 
             // DestPath
             // 
             this.DestPath.Location = new System.Drawing.Point(26, 113);
             this.DestPath.Name = "DestPath";
             this.DestPath.Size = new System.Drawing.Size(669, 20);
-            this.DestPath.TabIndex = 18;
+            this.DestPath.TabIndex = 4;
             // 
             // DestButton
             // 
             this.DestButton.Location = new System.Drawing.Point(701, 111);
             this.DestButton.Name = "DestButton";
             this.DestButton.Size = new System.Drawing.Size(75, 23);
-            this.DestButton.TabIndex = 19;
+            this.DestButton.TabIndex = 5;
             this.DestButton.Text = "Dest Dir";
             this.DestButton.UseVisualStyleBackColor = true;
             this.DestButton.Click += new System.EventHandler(this.DestButton_Click);
             // 
             // treeView1
             // 
+            this.treeView1.Indent = 18;
             this.treeView1.Location = new System.Drawing.Point(241, 153);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(793, 292);
-            this.treeView1.TabIndex = 20;
+            this.treeView1.TabIndex = 18;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // dataGridView1
@@ -278,14 +279,14 @@ namespace MattDotNetGUI
             this.dataGridView1.Location = new System.Drawing.Point(28, 451);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1006, 150);
-            this.dataGridView1.TabIndex = 21;
+            this.dataGridView1.TabIndex = 19;
             // 
             // viewdb
             // 
             this.viewdb.Location = new System.Drawing.Point(28, 422);
             this.viewdb.Name = "viewdb";
             this.viewdb.Size = new System.Drawing.Size(194, 23);
-            this.viewdb.TabIndex = 22;
+            this.viewdb.TabIndex = 17;
             this.viewdb.Text = "View Database";
             this.viewdb.UseVisualStyleBackColor = true;
             this.viewdb.Click += new System.EventHandler(this.viewdb_Click);
@@ -295,7 +296,7 @@ namespace MattDotNetGUI
             this.aboutButton.Location = new System.Drawing.Point(959, 124);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(75, 23);
-            this.aboutButton.TabIndex = 23;
+            this.aboutButton.TabIndex = 7;
             this.aboutButton.Text = "About";
             this.aboutButton.UseVisualStyleBackColor = true;
             this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
@@ -314,7 +315,7 @@ namespace MattDotNetGUI
             this.CATtimeout.Location = new System.Drawing.Point(830, 127);
             this.CATtimeout.Name = "CATtimeout";
             this.CATtimeout.Size = new System.Drawing.Size(100, 20);
-            this.CATtimeout.TabIndex = 24;
+            this.CATtimeout.TabIndex = 6;
             this.CATtimeout.Text = "5";
             this.CATtimeout.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -356,6 +357,7 @@ namespace MattDotNetGUI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Matt.NET";
             this.TransparencyKey = System.Drawing.SystemColors.WindowFrame;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
