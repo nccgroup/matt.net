@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
+using System.Xml.Serialization;
 using System.Xml.Linq;
 using System.Xml;
 using System.Security.Cryptography;
@@ -25,6 +26,7 @@ namespace MattDotNetGUI
 
     public partial class Form1 : Form
     {
+        private string CONFIG_FILE_PATH = Path.Combine(Application.StartupPath, "config.xml");
 
         public Form1()
         {
@@ -33,9 +35,69 @@ namespace MattDotNetGUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CatNETPath.Text = "C:\\Users\\Matt\\Desktop\\Matt.Net\\CATNETx64CTP\\CAT.NET\\CATNetCmd64.exe";
+            //Setup default GUI options
+            CatNETPath.Text = "C:\\Program Files (x86)\\Microsoft\\CAT.NET\\CATNetCmd.exe"; //Changed to match default CAT.NET x86 install path
             SourcePath.Text = "";
             DestPath.Text = "";
+
+            //Load existing configuration if available
+            try {
+                //Load the config
+                MattNetConfig config;
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(MattNetConfig));
+                StreamReader configFile = new StreamReader(CONFIG_FILE_PATH);
+                config = (MattNetConfig)xmlSerializer.Deserialize(configFile);
+                configFile.Close();
+
+                //Initialize UI
+                CatNETPath.Text = config.CatNetPath;
+                SourcePath.Text = config.LastSrcDir;
+                DestPath.Text = config.LastDstDir;
+                CATtimeout.Text = config.CatTimeoutMinutes.ToString();
+                CB_SQLInjection.Checked = config.CSQLEnabled;
+                CB_CommandExecution.Checked = config.CCMdExecEnabled;
+                CB_FileCanonicalisation.Checked = config.CFileCanonicalisationEnabled;
+                CB_InformationDisclosure.Checked = config.CInfoDisclosureEnabled;
+                CB_XSS.Checked = config.CXSSEnabled;
+                CB_WebRedirection.Checked = config.CWebRedirectEnabled;
+                CB_XPathInjection.Checked = config.CXPathEnabled;
+                CB_LDAPInjection.Checked = config.CLDAPEnabled;
+            } catch(Exception) {
+                //Ignore, XML config will be (re)created on application exit
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Create a MattNetConfig object to serialize
+            MattNetConfig config = new MattNetConfig();
+            uint timeout;
+            config.CatNetPath = CatNETPath.Text;
+            config.LastSrcDir = SourcePath.Text;
+            config.LastDstDir = DestPath.Text;
+            if (UInt32.TryParse(CATtimeout.Text, out timeout))
+            {
+                config.CatTimeoutMinutes = timeout;
+            }
+            else
+            {
+                config.CatTimeoutMinutes = 5; //Default
+            }
+            config.CSQLEnabled = CB_SQLInjection.Checked;
+            config.CCMdExecEnabled = CB_CommandExecution.Checked;
+            config.CFileCanonicalisationEnabled = CB_FileCanonicalisation.Checked;
+            config.CInfoDisclosureEnabled = CB_InformationDisclosure.Checked;
+            config.CXSSEnabled = CB_XSS.Checked;
+            config.CWebRedirectEnabled = CB_WebRedirection.Checked;
+            config.CXPathEnabled = CB_XPathInjection.Checked;
+            config.CLDAPEnabled = CB_LDAPInjection.Checked;
+
+            //Write the configuration file
+            XmlDocument configXml = new XmlDocument();
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(MattNetConfig));
+            StreamWriter configFile = new StreamWriter(CONFIG_FILE_PATH);
+            xmlSerializer.Serialize(configFile, config);
+            configFile.Close();
         }
 
         private void GoButton_Click(object sender, EventArgs e)
@@ -404,7 +466,7 @@ namespace MattDotNetGUI
             a.Show();
         }
 
-                
+
     }
 
     // container for .NET binary file and bug info (used to write easily to db; 1:1 member:column match
@@ -421,6 +483,23 @@ namespace MattDotNetGUI
         public int numRedirect;                                     // number of redirect bugs
         public int numXPath;                                        // number of XPath bugs
         public int numLDAP;                                         // number of LDAP bugs
+    }
+
+    //Container for config options
+    public class MattNetConfig
+    {
+        public string CatNetPath;
+        public string LastSrcDir;
+        public string LastDstDir;
+        public uint CatTimeoutMinutes;
+        public bool CSQLEnabled;
+        public bool CCMdExecEnabled;
+        public bool CFileCanonicalisationEnabled;
+        public bool CInfoDisclosureEnabled;
+        public bool CXSSEnabled;
+        public bool CWebRedirectEnabled;
+        public bool CXPathEnabled;
+        public bool CLDAPEnabled;
     }
 }
 
